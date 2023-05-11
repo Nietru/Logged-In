@@ -14,11 +14,12 @@ const userSchema = new Schema(
       type: String,
       required: true,
       unique: true,
-      match: [/.+@/, "Has to be an email."],
+      match: [[a-z0-9]+@[a-z]+\.[a-z]{2,3}, "Has to be an email."],
     },
     thoughts: [
       {
         type: Schema.Types.ObjectId,
+        // this has to match the ref of the thought model, including caps "Thought"
         ref: "Thought",
       },
     ],
