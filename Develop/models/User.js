@@ -1,5 +1,6 @@
 //initializing package
 const { Schema, model } = require("mongoose");
+const { thoughtSchema } = require("./Thought");
 
 //creating the schema (this is just an object in many ways)
 const userSchema = new Schema(
@@ -44,7 +45,7 @@ userSchema.virtual("friendCount").get(function () {
 });
 
 //making the model using the schema (this creates the document, or 'table' in your db)
-const User = model("User", userSchema);
+const User = model("user", userSchema);
 
 // exporting this out for when you need to use it
 module.exports = User;
