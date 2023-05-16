@@ -38,6 +38,24 @@ module.exports = {
       res.status(500).json(err);
     }
   },
+  // Update a user
+  async updateUser(req, res) {
+    try {
+      const user = await User.findOneAndUpdate(
+        { _id: req.params.id },
+        req.body,
+        { new: true }
+      );
+
+      if (!user) {
+        return res.status(404).json({ error: "User not found" });
+      }
+
+      res.status(200).json(user);
+    } catch (err) {
+      res.status(500).json(err);
+    }
+  },
   // Delete a user and remove them from the database
   async deleteUser(req, res) {
     try {
@@ -94,7 +112,7 @@ module.exports = {
     }
   },
   // Remove friend from a user
-  async removeFriend(req, res) {
+  async deleteFriend(req, res) {
     try {
       const user = await User.findOneAndUpdate(
         { _id: req.params.userId },
@@ -103,12 +121,10 @@ module.exports = {
         },
         { new: true }
       );
-
       if (!user) {
         return res.status(404).json({ error: "User not found" });
       }
-
-      res.status(200).json({ message: "Successfully removed friend" });
+      res.status(200).json({ message: "Friend Removed Successfully" });
     } catch (err) {
       res.status(500).json(err);
     }

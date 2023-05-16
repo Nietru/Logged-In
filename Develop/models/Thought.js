@@ -1,5 +1,6 @@
 //initializing package
 const { Schema, model } = require("mongoose");
+const reactionSchema = require("./Reaction");
 
 //creating the schema (this is just an object in many ways)
 const thoughtSchema = new Schema({
