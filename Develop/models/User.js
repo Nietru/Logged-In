@@ -17,19 +17,8 @@ const userSchema = new Schema(
       unique: true,
       match: [`[a-z0-9]+@[a-z]+\.[a-z]{2,3}`, "Has to be an email."],
     },
-    thoughts: [
-      {
-        type: Schema.Types.ObjectId,
-        // this has to match the ref of the thought model, including caps "Thought"
-        ref: "Thought",
-      },
-    ],
-    friends: [
-      {
-        type: Schema.Types.ObjectId,
-        ref: "User",
-      },
-    ],
+    thoughts: [thoughtSchema],
+    friends: [this],
   },
   {
     toJSON: {
