@@ -1,5 +1,5 @@
+const { Thought, User } = require("../models");
 const { ObjectId } = require("mongoose").Types;
-const { Thought, User, Thoughts } = require("../models");
 
 // Get all thoughts
 module.exports = {
@@ -15,7 +15,7 @@ module.exports = {
     }
   },
 
-  // Get a course
+  // Get a thought
   async getSingleThought(req, res) {
     try {
       const thought = await Thought.findOne({ _id: req.params.id });

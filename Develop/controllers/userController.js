@@ -5,10 +5,6 @@ module.exports = {
   async getUsers(req, res) {
     try {
       const users = await User.find();
-      const userObj = {
-        users,
-        headCount: await headCount(),
-      };
       return res.json(userObj);
     } catch (err) {
       console.log(err);
