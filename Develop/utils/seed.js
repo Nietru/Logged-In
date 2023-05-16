@@ -8,6 +8,8 @@ const userSeed = [
   },
 ];
 
+const thoughtSeed = [{}];
+
 connection.once("open", async () => {
   //resetting the user table by deleting any previous information
   await User.deleteMany({});
